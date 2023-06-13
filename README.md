@@ -1,3 +1,18 @@
+# Banyumas-Farm-Fresh
+
+This project was build for
+
+Job Description:
+1. Abdul Aziz 
+    - Develop and maintain backend infrastructure using Node.js, Express, and MongoDB.
+    - Implement server-side logic and APIs, collaborate with frontend team. 
+3. M. Muntashir
+    - Develop the frontend of the application using ReactJs.
+    - Integrate frontend components with the backend APIs.
+5. Agyl Restu Hermanto
+    - Develop and style frontend using HTML, CSS, and JavaScript.
+    - Create visually appealing and responsive user interfaces.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
