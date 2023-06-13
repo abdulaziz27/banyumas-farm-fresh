@@ -1,6 +1,6 @@
 # Banyumas-Farm-Fresh
 
-This project was build for
+This website was built for the purpose of promoting and selling farm-fresh products from the Banyumas region.
 
 Job Description:
 1. Abdul Aziz 
