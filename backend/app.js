@@ -15,7 +15,13 @@ app.options('*', cors());
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
 app.use(authJwt());
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
+app.use((error, req, res, next) => {
+    console.log(`This is the rejected field ->" ${error.field}"`);
+    console.log(message);
+    return res.status(500).send(message);
+  });
 
 //Routes
 const categoriesRoutes = require('./routes/categories');
