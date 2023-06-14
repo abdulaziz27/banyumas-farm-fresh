@@ -68,7 +68,6 @@ exports.Product = mongoose.model('Product', productSchema);
         "name": "Product 5",
         "description": "Product 5 Desc",
         "richDescription": "Product 5 Rich Desc",
-        "brand": "Banyumas Farm Fresh",
         "price": 10000,
         "countInStock": 5,
         "rating": 4,
