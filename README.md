@@ -7,7 +7,7 @@ Job Description:
     - Develop and maintain backend infrastructure using Node.js, Express, and MongoDB.
     - Implement server-side logic and APIs, collaborate with frontend team. 
 3. M. Muntashir
-    - Develop the frontend of the application using ReactJs.
+    - Develop the frontend of the application using Js.
     - Integrate frontend components with the backend APIs.
 5. Agyl Restu Hermanto
     - Develop and style frontend using HTML, CSS, and JavaScript.
