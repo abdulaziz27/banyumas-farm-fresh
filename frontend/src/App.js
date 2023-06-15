@@ -1,39 +1,36 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import RegisterForm from './components/RegisterForm';
-import LoginForm from './components/LoginForm';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Blog from './pages/Blog';
-
-const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+import Home from './pages/home';
+import './App.css';
+import About from './pages/about';
+import {BrowserRouter as Router, Route,Routes} from 'react-router-dom';
+import Account from './pages/account';
+import Cart from './pages/cart';
+import Contact from './pages/contact';
+import Login from './pages/login';
+import Register from './pages/register';
+import Shop from './pages/shop';
+import Sproduct from './pages/sproduct';
+import Blog from './pages/blog';
+import Checkout from './pages/checkout';
 
   return (
-    <Router>
-      <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
-        <Navbar />
+    <div className='App'>
+      <Router>
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/blog" element={<Blog/>} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path='/' element={<Home />}/>
+          <Route path='/about' element={<About />}/>
+          <Route path='/account' element={<Account />}/>
+          <Route path='/blog' element={<Blog />}/>
+          <Route path='/cart' element={<Cart />}/>
+          <Route path='/contact' element={<Contact />}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/register' element={<Register />}/>
+          <Route path='/shop' element={<Shop />}/>
+          <Route path='/sproduct' element={<Sproduct />}/>
+          <Route path='/checkout' element={<Checkout />}/>
         </Routes>
-        <button onClick={toggleDarkMode}>Test Dark Mode</button>
-        <Footer />
-      </div>
-    </Router>
-  );
-};
+      </Router>
+    </div>
+  );  
+}
 
 export default App;
