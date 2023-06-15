@@ -3,7 +3,6 @@ import { registerUser } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -13,7 +12,6 @@ const RegisterForm = () => {
 
     try {
       const newUser = {
-        name,
         email,
         password,
       };
@@ -31,12 +29,6 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleRegister}>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
       <input
         type="email"
         placeholder="Email"

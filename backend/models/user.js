@@ -36,12 +36,7 @@ const userSchema = new mongoose.Schema({
     city: {
         type: String,
         default: ''
-    },
-    country: {
-        type: String,
-        default: ''
     }
-
 });
 
 userSchema.virtual('id').get(function () {

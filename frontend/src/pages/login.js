@@ -15,7 +15,7 @@ function Login() {
           <div className="breadcrumbs">
             <ul>
               <li className="home">
-                <a href="index.html" title="go to home page">
+                <a href="/" title="go to home page">
                   Home
                 </a>
                 <span>/</span>

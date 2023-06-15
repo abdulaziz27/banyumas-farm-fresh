@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/home';
 import './App.css';
 import About from './pages/about';
-import {BrowserRouter as Router, Route,Routes} from 'react-router-dom';
 import Account from './pages/account';
 import Cart from './pages/cart';
 import Contact from './pages/contact';
@@ -12,6 +14,7 @@ import Sproduct from './pages/sproduct';
 import Blog from './pages/blog';
 import Checkout from './pages/checkout';
 
+const App = () => {
   return (
     <div className='App'>
       <Router>
