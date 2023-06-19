@@ -1,35 +1,44 @@
-import Home from './pages/home';
+
 import './App.css';
-import About from './pages/about';
-import {BrowserRouter as Router, Route,Routes} from 'react-router-dom';
-import Account from './pages/account';
-import Cart from './pages/cart';
-import Contact from './pages/contact';
-import Login from './pages/login';
-import Register from './pages/register';
-import Shop from './pages/shop';
-import Sproduct from './pages/sproduct';
-import Blog from './pages/blog';
-import Checkout from './pages/checkout';
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Main from './pages/Main';
+import { Fragment } from 'react';
+import Footer from './common/footer/Footer'
+import Shop from './pages/Shop';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+import Account from './pages/Account';
+import Cart from './pages/Cart';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Sproduct from './pages/Sproduct';
+import Checkout from './pages/Checkout';
+import About from './pages/Tentang';
+
 
 function App() {
   return (
     <div className='App'>
+    <Fragment>
       <Router>
+        
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/about' element={<About />}/>
-          <Route path='/account' element={<Account />}/>
-          <Route path='/blog' element={<Blog />}/>
-          <Route path='/cart' element={<Cart />}/>
-          <Route path='/contact' element={<Contact />}/>
-          <Route path='/login' element={<Login />}/>
-          <Route path='/register' element={<Register />}/>
-          <Route path='/shop' element={<Shop />}/>
-          <Route path='/sproduct' element={<Sproduct />}/>
-          <Route path='/checkout' element={<Checkout />}/>
+          <Route exact path='/' element={<Main/>}/>      
+          <Route exact path='/shop' element={<Shop/>}/>      
+          <Route exact path='/blog' element={<Blog/>}/>      
+          <Route exact path='/contact' element={<Contact/>}/>      
+          <Route exact path='/about' element={<About/>}/>      
+          <Route exact path='/account' element={<Account/>}/>      
+          <Route exact path='/cart' element={<Cart/>}/>      
+          <Route exact path='/login' element={<Login/>}/>      
+          <Route exact path='/register' element={<Register/>}/>      
+          <Route exact path='/sproduct' element={<Sproduct/>}/>      
+          <Route exact path='/checkout' element={<Checkout/>}/>      
         </Routes>
+        <Footer/>
       </Router>
+    </Fragment>
     </div>
   );  
 }
