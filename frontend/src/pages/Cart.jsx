@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useEffect } from 'react'
 import Wrapper from "../components/wrapper/Wrapper"
 import Header from '../common/header/Header';
 import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
     <Header />

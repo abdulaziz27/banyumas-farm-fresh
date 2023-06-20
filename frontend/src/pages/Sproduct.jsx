@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from 'react'
 import Wrapper from "../components/wrapper/Wrapper"
 import Header from '../common/header/Header';
 import { Link } from 'react-router-dom'
@@ -11,21 +11,24 @@ const Sproduct = () => {
     var MainImg = document.getElementById("MainImg");
     var smallimg = document.getElementsByClassName("small-img");
 if (smallimg.length > 0) {
-  smallimg[0].onclick = function() {
+  smallimg[0].onClick = function() {
     MainImg.src = smallimg[0].src;
   }
-  smallimg[1].onclick = function() {
+  smallimg[1].onClick = function() {
     MainImg.src = smallimg[1].src;
   }
-  smallimg[2].onclick = function() {
+  smallimg[2].onClick = function() {
     MainImg.src = smallimg[2].src;
   }
-  smallimg[3].onclick = function() {
+  smallimg[3].onClick = function() {
     MainImg.src = smallimg[3].src;
   }
 }
   });
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <><Header />
   <section id="prodetails" className="section-p1">
