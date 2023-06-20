@@ -1,4 +1,3 @@
-
 import './App.css';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -15,6 +14,8 @@ import Register from './pages/Register';
 import Sproduct from './pages/Sproduct';
 import Checkout from './pages/Checkout';
 import About from './pages/Tentang';
+import VerifyEmail from './pages/VerifyEmail';
+import PrivateRoutes from './utils/PrivateRoutes';
 
 
 function App() {
@@ -22,19 +23,21 @@ function App() {
     <div className='App'>
     <Fragment>
       <Router>
-        
         <Routes>
           <Route exact path='/' element={<Main/>}/>      
           <Route exact path='/shop' element={<Shop/>}/>      
           <Route exact path='/blog' element={<Blog/>}/>      
           <Route exact path='/contact' element={<Contact/>}/>      
           <Route exact path='/about' element={<About/>}/>      
-          <Route exact path='/account' element={<Account/>}/>      
-          <Route exact path='/cart' element={<Cart/>}/>      
           <Route exact path='/login' element={<Login/>}/>      
           <Route exact path='/register' element={<Register/>}/>      
           <Route exact path='/sproduct' element={<Sproduct/>}/>      
-          <Route exact path='/checkout' element={<Checkout/>}/>      
+          <Route exact path='/verify-email' element={<VerifyEmail/>}/>
+          <Route element={<PrivateRoutes />}>
+            <Route exact path='/account' element={<Account/>}/>      
+            <Route exact path='/cart' element={<Cart/>}/>      
+            <Route exact path='/checkout' element={<Checkout/>}/>     
+          </Route>   
         </Routes>
         <Footer/>
       </Router>
