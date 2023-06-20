@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
 
-
 function Footer() {
   return (
     <Fragment>
@@ -62,5 +61,4 @@ function Footer() {
     </Fragment>
   )
 }
-
-export default Footer;
+export default Footer
