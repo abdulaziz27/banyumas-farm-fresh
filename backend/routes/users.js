@@ -157,10 +157,23 @@ router.post('/register', async (req, res) => {
       const verificationLink = `http://localhost:3001/verify-email/${verificationToken}`;
   
       const mailOptions = {
-        from: 'dulzfaker@gmail.com',
+        from: 'Admin Banyumas Farm Fresh',
         to: user.email,
-        subject: 'Email Verification',
-        text: `Click the following link to verify your email: ${verificationLink}`,
+        subject: 'Email Verification - Banyumas Farm Fresh',
+        text: `
+        Dear ${user.name},
+
+        Thank you for signing up with Banyumas Farm Fresh! To complete your registration and start exploring our fresh produce, please verify your email address by clicking on the verification link below:
+
+        Verification Link: ${verificationLink}
+
+        Please note that the link will expire after 24 hours for security purposes. If you're unable to click the link, you can copy and paste it into your web browser's address bar.
+
+        If you did not create an account on Banyumas Farm Fresh, please ignore this email.
+
+        Thank you,
+        Banyumas Farm Fresh Team
+        `,
       };
   
       transporter.sendMail(mailOptions, (error, info) => {
@@ -228,8 +241,21 @@ router.post('/register', async (req, res) => {
       const mailOptions = {
         from: 'dulzfaker@gmail.com',
         to: user.email,
-        subject: 'Email Verification',
-        text: `Click the following link to verify your email: ${verificationLink}`,
+        subject: 'Email Verification - Banyumas Farm Fresh',
+        text: `
+        Dear {user.email},
+
+        Thank you for signing up with Banyumas Farm Fresh! To complete your registration and start exploring our fresh produce, please verify your email address by clicking on the verification link below:
+
+        Verification Link: ${verificationLink}
+
+        Please note that the link will expire after 24 hours for security purposes. If you're unable to click the link, you can copy and paste it into your web browser's address bar.
+
+        If you did not create an account on Banyumas Farm Fresh, please ignore this email.
+
+        Thank you,
+        Banyumas Farm Fresh Team
+        `,
       };
   
       await transporter.sendMail(mailOptions, (error, info) => {
