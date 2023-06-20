@@ -1,46 +1,39 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import './App.css';
-import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import Main from './pages/Main';
-import { Fragment } from 'react';
-import Footer from './common/footer/Footer'
-import Shop from './pages/Shop';
-import Blog from './pages/Blog';
+import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
 import Contact from './pages/Contact';
-import Account from './pages/Account';
-import Cart from './pages/Cart';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Sproduct from './pages/Sproduct';
-import Checkout from './pages/Checkout';
-import About from './pages/Tentang';
+import Blog from './pages/Blog';
 
+const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
 
-function App() {
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className='App'>
-    <Fragment>
-      <Router>
-        
+    <Router>
+      <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
+        <Navbar />
         <Routes>
-          <Route exact path='/' element={<Main/>}/>      
-          <Route exact path='/shop' element={<Shop/>}/>      
-          <Route exact path='/blog' element={<Blog/>}/>      
-          <Route exact path='/contact' element={<Contact/>}/>      
-          <Route exact path='/about' element={<About/>}/>      
-          <Route exact path='/account' element={<Account/>}/>      
-          <Route exact path='/cart' element={<Cart/>}/>      
-          <Route exact path='/login' element={<Login/>}/>      
-          <Route exact path='/register' element={<Register/>}/>      
-          <Route exact path='/sproduct' element={<Sproduct/>}/>      
-          <Route exact path='/checkout' element={<Checkout/>}/>      
+          <Route exact path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/blog" element={<Blog/>} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
-        <Footer/>
-      </Router>
-    </Fragment>
-    </div>
-  );  
-}
+        <button onClick={toggleDarkMode}>Test Dark Mode</button>
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
 export default App;
