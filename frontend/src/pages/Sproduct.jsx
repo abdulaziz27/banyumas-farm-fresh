@@ -4,7 +4,28 @@ import Header from '../common/header/Header';
 import { Link } from 'react-router-dom'
 
 
+
 const Sproduct = () => {
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var MainImg = document.getElementById("MainImg");
+    var smallimg = document.getElementsByClassName("small-img");
+if (smallimg.length > 0) {
+  smallimg[0].onclick = function() {
+    MainImg.src = smallimg[0].src;
+  }
+  smallimg[1].onclick = function() {
+    MainImg.src = smallimg[1].src;
+  }
+  smallimg[2].onclick = function() {
+    MainImg.src = smallimg[2].src;
+  }
+  smallimg[3].onclick = function() {
+    MainImg.src = smallimg[3].src;
+  }
+}
+  });
+
   return (
     <><Header />
   <section id="prodetails" className="section-p1">
@@ -46,7 +67,7 @@ const Sproduct = () => {
       </div>
     </div>
     <div className="single-pro-details">
-      <h6>home / iu</h6>
+      <h6>Shop / Sproduct</h6>
       <h4>i love u</h4>
       <h2>Rp.1</h2>
       <select>
@@ -161,6 +182,8 @@ const Sproduct = () => {
       </div>
     </div>
   </section>
+
+
       <Wrapper />
     </>
   )

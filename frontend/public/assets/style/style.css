@@ -163,6 +163,7 @@ button.white{
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 40px 40px;
+    
 }
 
 #sm-banner .banner-box{
@@ -176,10 +177,12 @@ button.white{
     background-size: cover;
     background-position: center;
     padding: 30px;
+
 }
 
 #sm-banner .banner-box2{
     background-image: url("../img/features/b17.jpg");
+
 }
 
 #sm-banner h4{
