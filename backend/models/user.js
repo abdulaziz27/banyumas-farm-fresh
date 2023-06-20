@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     city: {
         type: String,
         default: ''
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
     }
 });
 

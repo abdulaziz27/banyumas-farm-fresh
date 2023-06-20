@@ -1,8 +1,37 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Menu from '../components/menu'
 import Footer from '../components/footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { registerUser, sendVerificationEmail } from '../services/authService'
+
 function Register() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  // const [showAlert, setShowAlert] = useState(false);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = {
+        email,
+        password,
+      };
+
+      const response = await registerUser(user);
+      console.log(response); // Tampilkan pesan sukses atau berikan umpan balik ke pengguna
+
+      // Kirim email verifikasi
+      await sendVerificationEmail(email);
+
+      // Redirect ke halaman sukses registrasi atau halaman verifikasi email
+      navigate('/');
+    } catch (error) {
+      console.error(error); // Tampilkan pesan error atau berikan umpan balik ke pengguna
+    }
+  };
+
   return (
     <Fragment>
         <>
@@ -42,20 +71,6 @@ function Register() {
                       <ul className="form-list">
                         <li>
                           <label htmlFor="email">
-                            Username
-                            <span className="required">*</span>
-                          </label>
-                          <input
-                            type="text"
-                            title="alamat email"
-                            className="input-text required-entry"
-                            id="email"
-                            defaultValue=""
-                            name="login[username]"
-                          />
-                        </li>
-                        <li>
-                          <label htmlFor="email">
                             Alamat Email
                             <span className="required">*</span>
                           </label>
@@ -64,8 +79,8 @@ function Register() {
                             title="alamat email"
                             className="input-text required-entry"
                             id="email"
-                            defaultValue=""
-                            name="login[username]"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                           />
                         </li>
                         <li>
@@ -78,13 +93,14 @@ function Register() {
                             title="password"
                             className="input-text required-entry validate-password"
                             id="pass"
-                            name="login[password]"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                         </li>
                       </ul>
                       <p className="required">* wajib diisi</p>
                       <div id="masuk">
-                        <button className="normal">Daftar</button>
+                        <button onClick={handleRegister} className="normal">Daftar</button>
                       </div>
                       <div>
                         <br />
