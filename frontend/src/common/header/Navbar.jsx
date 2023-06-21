@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="header">
+      <header className={`header ${mobileMenu ? 'active' : ''}`}>
         <div className="container d_flex">
           <div className="categories d_flex categories-dropdown">
             <span className="fa-solid fa-border-all"></span>
@@ -65,12 +65,12 @@ const Navbar = () => {
             </ul>
 
             <button className="toggle" onClick={toggleMobileMenu}>
-              {mobileMenu ? (
-                <i className="fas fa-times close home-btn"></i>
-              ) : (
-                <i className="fas fa-bars open"></i>
-              )}
-            </button>
+        {mobileMenu ? (
+          <i className="fas fa-times close home-btn"></i>
+        ) : (
+          <i className="fas fa-bars open"></i>
+        )}
+      </button>
           </div>
         </div>
       </header>
