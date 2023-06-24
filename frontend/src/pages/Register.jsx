@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import React, { useEffect } from 'react'
 import Wrapper from "../components/wrapper/Wrapper"
 import { Link, useNavigate } from 'react-router-dom'
 import Header from '../common/header/Header'

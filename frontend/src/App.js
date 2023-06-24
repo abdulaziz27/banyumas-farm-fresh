@@ -33,10 +33,9 @@ function App() {
           <Route exact path='/login' element={<Login/>}/>      
           <Route exact path='/register' element={<Register/>}/>      
           <Route exact path='/sproduct' element={<Sproduct/>}/>      
-          <Route exact path='/verify-email' element={<VerifyEmail/>}/>
+          <Route exact path='/verify-email/:token' element={<VerifyEmail/>}/>
           <Route element={<PrivateRoutes />}>
             <Route path='/user/:activepage' element={<UserProfile/>} /> 
-            <Route exact path='/account' element={<Account/>}/>      
             <Route exact path='/cart' element={<Cart/>}/>      
             <Route exact path='/checkout' element={<Checkout/>}/>     
           </Route>   
