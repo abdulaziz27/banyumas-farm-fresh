@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
@@ -44,7 +44,7 @@ button.white {
     width: 40%;
     outline: none;
     border: none;
-    background: #7ED957;
+    background: #088178;
     color: white;
     font-weight: 700;
     border-radius: 60px;
@@ -108,7 +108,7 @@ button.white {
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
-    color: #7ED957;
+    color: #088178;
 }
 
 #product1 .pro .cart {
@@ -118,7 +118,7 @@ button.white {
     border-radius: 60px;
     background-color: #e8f6ea;
     font-weight: 700;
-    color: #7ED957;
+    color: #088178;
     border: 1px solid #cce7d0;
     position: absolute;
     bottom: 20px;
@@ -155,8 +155,6 @@ button.white {
 
 #banner button:hover {
     background-color: #088178;
-#banner button:hover{
-    background-color: #7ED957;
     color: #fff;
 }
 
@@ -206,9 +204,6 @@ button.white {
 #sm-banner .banner-box:hover button {
     background: #088178;
     border: 1px solid #088178;
-#sm-banner .banner-box:hover button{
-    background: #7ED957;
-    border: 1px solid #7ED957;
 }
 
 #banner3 {
@@ -306,7 +301,7 @@ button.white {
 
 #pagination a {
     text-decoration: none;
-    background-color: #7ED957;
+    background-color: #088178;
     padding: 15px 20px;
     border-radius: 4px;
     color: #fff;
@@ -348,7 +343,6 @@ button.white {
 
 #prodetails .single-pro-details h4 {
     padding: 40px 0 20px 0;
-    font-size: 26px;
 }
 
 #prodetails .single-pro-details h2 {
@@ -375,8 +369,6 @@ button.white {
 
 #prodetails .single-pro-details button {
     background-color: #088178;
-#prodetails .single-pro-details button{
-    background-color: #7ED957;
     color: #fff;
 }
 
@@ -441,12 +433,6 @@ button.white {
 
 #blog .blog-detail a:hover {
     color: #088178;
-#blog .blog-detail a:hover:after{
-    background-color: #7ED957;
-}
-
-#blog .blog-detail a:hover{
-    color: #7ED957;
 }
 
 #blog .blog-box h1 {
@@ -579,8 +565,6 @@ button.white {
 
 #form-details form button {
     background-color: #088178;
-#form-details form button{
-    background-color: #7ED957;
     color: #fff;
 }
 
@@ -696,8 +680,6 @@ button.white {
 #coupon button,
 #subtotal button {
     background-color: #088178;
-#subtotal button{
-    background-color: #7ED957;
     color: #fff;
     padding: 12px 20px;
 }
@@ -736,9 +718,6 @@ button.white {
 
 .breadcrumbs-sec {
     background: #198754;
-    
-.breadcrumbs-sec{
-    background: #7ED957;
     padding: 15px 0px;
 }
 
@@ -944,11 +923,6 @@ body {
     margin-left: 1rem;
     margin-right: 1rem;
 }
-.button.login{
-    background-color: #7ED957;
-    color: white;
-}
-
 
 /* start media query */
 

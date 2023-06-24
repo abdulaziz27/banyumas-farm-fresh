@@ -17,6 +17,7 @@ import Checkout from "./pages/Checkout";
 import About from "./pages/Tentang";
 import VerifyEmail from "./pages/VerifyEmail";
 import PrivateRoutes from "./utils/PrivateRoutes";
+import UserProfile from "../src/pages/User/UserProfile";
 
 function App() {
     return (
