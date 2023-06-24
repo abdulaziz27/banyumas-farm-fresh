@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -37,14 +38,13 @@ function App() {
                         />
                         <Route
                             exact
-                            path="/verify-email"
+                            path="/verify-email/:token"
                             element={<VerifyEmail />}
                         />
                         <Route element={<PrivateRoutes />}>
                             <Route
-                                exact
-                                path="/account"
-                                element={<Account />}
+                                path="/user/:activepage"
+                                element={<UserProfile />}
                             />
                             <Route exact path="/cart" element={<Cart />} />
                             <Route

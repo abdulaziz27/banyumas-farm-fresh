@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Dropdownuser from "../../components/user/dropdownuser"
+import Dropdownuser from "../../pages/User/dropdownuser"
 
 
 

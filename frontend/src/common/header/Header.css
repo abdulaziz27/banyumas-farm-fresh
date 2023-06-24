@@ -1,7 +1,7 @@
 /*------head-----------*/
 
 .head {
-  background-color: #198754;
+  background-color: #7ED957;
   padding: 10px 0;
   color: #fff;
 }
@@ -52,10 +52,11 @@
 }
 .search-box span {
   width: 20%;
-  opacity: 0.5;
+  opacity: 1;
   border-left: 2px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
   text-align: center;
+  cursor: pointer;
 }
 .cart {
   position: relative;
@@ -77,25 +78,6 @@
   padding: 10px 0 10px 0;
 }
 /*------search-----------*/
-.catgrories {
-  background-color: #f6f9fc;
-  padding: 0px 30px;
-  border-radius: 5px;
-  height: 6vh;
-  margin-top: 5px;
-}
-.catgrories span {
-  margin-right: 20px;
-  font-size: 30px;
-  margin-top: 10px;
-}
-.catgrories h4 {
-  font-weight: 500;
-  margin-top: 12px;
-}
-.catgrories h4 i {
-  margin-left: 10px;
-}
 header {
   height: 8vh;
   box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
@@ -137,13 +119,82 @@ header ul li a:hover {
 }
 
 
+.categories-dropdown {
+  position: relative;
+  top: 20px;
+}
+
+.categories h4{
+  margin-left: 10px;
+}
+
+.categories-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  border-color: rgba(0, 0, 0, 0.175);
+  min-width: 205px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  text-align: left;
+  list-style: none;
+  top: 50%; /* Position the dropdown below the categories */
+}
+
+.categories-dropdown:hover .categories-dropdown-content {
+  display: block;
+}
+
+.categories-dropdown-content a {
+  display: block;
+  padding: 8px 0;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.categories-dropdown-content a:hover {
+  background-color: #ebebeb;
+  color: #7ED957;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 10px 0 10px 0;
+}
+
+
+
 
 @media (max-width: 799px) {
+
+  .nav-links {
+    display: none;
+  }
   header ul {
     padding-top: 30px;
     background-color: #ffffff;
 
   }
+
+  
+.category {
+  height: 355px;
+}
+
+.categories-dropdown {
+  margin-top: 30px;
+}
+.categories-dropdown-content {
+  margin-top: 30px;
+}
+
+
+
   .nav-links-MobileMenu {
     position: absolute;
     display: block;
@@ -163,9 +214,7 @@ header ul li a:hover {
     text-transform: uppercase;
     line-height: 70px;
   }
-  header .link {
-    display: none;
-  }
+
   
   .open {
     position: absolute;
@@ -206,15 +255,17 @@ header ul li a:hover {
     height: 13vh;
     
 }
-.category {
-  height: 355px;
-}
-
-
 
 }
 
 @media (max-width: 477px) {
+
+  .categories-dropdown {
+    margin-top: 20px;
+  }
+  .categories-dropdown-content {
+    margin-top: 20px;
+}
 
       .open{
         top: 205px;
