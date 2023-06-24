@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useEffect } from 'react'
 import Wrapper from "../components/wrapper/Wrapper"
 import Header from '../common/header/Header';
 
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <><Header />
   <section id="page-header" className="contact-header">

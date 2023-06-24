@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from 'react'
 import Home from "../components/mainpage/Home"
 import Wrapper from "../components/wrapper/Wrapper"
 import { Link } from 'react-router-dom'
@@ -6,8 +6,21 @@ import Header from '../common/header/Header';
 
 
 const Shop = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
-    <><Header />
+    <>
+    <Header />
+    <section id="banner" className="section-m1">
+    <h4>Fresh Vegetables & Fruits at your doorstep</h4>
+    <h2>
+    We deliver fresh <span>vegetables & fruits</span> at your doorstep
+    </h2>
+    <Link to="/Shop">
+    <button className="normal">Explore More</button>
+    </Link>
+  </section>
       <Home />
       <section id="page-header">
     <h2>LEE JI EUN</h2>
@@ -15,7 +28,7 @@ const Shop = () => {
   </section>
   <section id="product1" className="section-p1">
     <div className="pro-container">
-      <div className="pro" onclick="window.location.href='sproducts.html';">
+      <div className="pro">
         <Link to="/Sproduct">
         <img src="assets/img/features/f7.jpg" alt="" />
         </Link>

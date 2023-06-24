@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import React, { useEffect } from 'react'
 import Wrapper from "../components/wrapper/Wrapper"
 import { Link, useNavigate } from 'react-router-dom'
 import Header from '../common/header/Header'
@@ -30,6 +31,9 @@ const Login = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <><Header />
       <section className="main-container col1-layout">
