@@ -10,7 +10,6 @@ import Footer from "./common/footer/Footer";
 import Shop from "./pages/Shop";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-import Account from "./pages/Account";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";

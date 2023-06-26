@@ -133,9 +133,15 @@ const Sproduct = () => {
                                     <div>{item.name}</div>
                                 </Link>
                                 <div className="star">
-                                    {Array.from({ length: item.rating }, (_, index) => (
-                                        <i key={index} className="bi bi-star-fill" />
-                                    ))}
+                                    {Array.from({ length: 5 }, (_, index) => {
+                                        if (index < Math.floor(item.rating)) {
+                                            return <i key={index} className="bi bi-star-fill" />;
+                                        } else if (index === Math.floor(item.rating) && item.rating % 1 !== 0) {
+                                            return <i key={index} className="bi bi-star-half" />;
+                                        } else {
+                                            return <i key={index} className="bi bi-star" />;
+                                        }
+                                    })}
                                 </div>
                                 <h4>Rp. {item.price}</h4>
                             </div>
