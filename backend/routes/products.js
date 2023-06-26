@@ -47,6 +47,22 @@ router.get(`/`, async (req, res) =>{
     res.send(productList);
 })
 
+router.get(`/suggestions`, async (req, res) => {
+    const { search } = req.query;
+    let filter = {};
+  
+    if (search) {
+      filter = { name: { $regex: search, $options: 'i' } };
+    }
+  
+    try {
+      const productList = await Product.find(filter, 'name').limit(5);
+      res.send(productList);
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
+    }
+  });
+
 router.get(`/:id`, async (req, res) =>{
     const product = await Product.findById(req.params.id).populate('category');
 

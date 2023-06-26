@@ -1,7 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../components/assets/images/Your paragraph text_adobe_express.svg";
+import { useNavigate } from "react-router-dom";
+import "./Search.css";
 
 const Search = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
+    const navigate = useNavigate();
+
     useEffect(() => {
         const handleScroll = () => {
             const search = document.querySelector(".search");
@@ -17,24 +23,61 @@ const Search = () => {
         };
     }, []);
 
+    const handleSearch = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/products/suggestions?search=${searchTerm}`);
+            const data = await response.json();
+            setSuggestions(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleInputChange = (event) => {
+        setSearchTerm(event.target.value);
+        handleSearch();
+    };
+
+    const handleSuggestionClick = (suggestion) => {
+        navigate(`/sproduct/${suggestion._id}`);
+    };
+
     return (
         <>
             <section className="search">
                 <div className="container c_flex">
                     <div className="logo width">
-                        <img src={logo} alt="" />
+                        <a href="/">
+                            <img src={logo} alt="" />
+                        </a>
                     </div>
-
                     <div className="search-box f_flex">
                         <i className="fa fa-search"></i>
                         <input
                             type="text"
                             placeholder="Search and hit enter..."
+                            value={searchTerm}
+                            onChange={handleInputChange}
                         />
                         <span>Search</span>
                     </div>
                 </div>
             </section>
+
+            {/* Additional styling */}
+            <div className="suggestions-container">
+                <div className="suggestions">
+                    {suggestions.map((suggestion) => (
+                        <div
+                            key={suggestion._id}
+                            className="suggestion-item"
+                            onClick={() => handleSuggestionClick(suggestion)}
+                        >
+                            {suggestion.name}
+                        </div>
+                    ))}
+                </div>
+            </div>
         </>
     );
 };

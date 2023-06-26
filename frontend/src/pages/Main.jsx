@@ -20,6 +20,8 @@ const Pages = () => {
       });
   }, []);
 
+  const featuredProducts = cartItems.filter(item => item.isFeatured === true);
+
   return (
     <>
       <Header />
@@ -34,11 +36,11 @@ const Pages = () => {
       </section>
       <Home />
       <section id="product1" className="section-p1">
-        <h2 style={{ marginTop: "50px" }}>New Arivals</h2>
+        <h2 style={{ marginTop: "50px" }}>New Arrivals</h2>
         <p>Summer Collection New Modern Design</p>
         <div className="pro-container">
-          {cartItems.map((item) => (
-            <div className="pro">
+          {cartItems.map((item, index) => (
+            <div className="pro" key={index}>
               <Link to={`/sproduct/${item._id}`}>
                 <img src={item.image} alt="" />
               </Link>
@@ -48,15 +50,9 @@ const Pages = () => {
                   <h5>{item.name}</h5>
                 </Link>
                 <div className="star">
-                  {Array.from(
-                    { length: item.rating },
-                    (_, index) => (
-                      <i
-                        key={index}
-                        className="bi bi-star-fill"
-                      />
-                    )
-                  )}
+                  {Array.from({ length: item.rating }, (_, index) => (
+                    <i key={index} className="bi bi-star-fill" />
+                  ))}
                   <h4>Rp. {item.price}</h4>
                 </div>
               </div>
@@ -86,12 +82,13 @@ const Pages = () => {
           <button className="white">Learn More</button>
         </div>
       </section>
+
       <section id="product1" className="section-p1">
         <h2>Featured Product</h2>
         <p>Summer Collection New Modern Design</p>
         <div className="pro-container">
-          {cartItems.map((item) => (
-            <div className="pro">
+          {featuredProducts.map((item, index) => (
+            <div className="pro" key={index}>
               <Link to={`/sproduct/${item._id}`}>
                 <img src={item.image} alt="" />
               </Link>
@@ -101,15 +98,9 @@ const Pages = () => {
                   <h5>{item.name}</h5>
                 </Link>
                 <div className="star">
-                  {Array.from(
-                    { length: item.rating },
-                    (_, index) => (
-                      <i
-                        key={index}
-                        className="bi bi-star-fill"
-                      />
-                    )
-                  )}
+                  {Array.from({ length: item.rating }, (_, index) => (
+                    <i key={index} className="bi bi-star-fill" />
+                  ))}
                 </div>
                 <h4>Rp. {item.price}</h4>
               </div>
@@ -139,4 +130,5 @@ const Pages = () => {
     </>
   );
 };
+
 export default Pages;

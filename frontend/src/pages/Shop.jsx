@@ -43,7 +43,7 @@ const Shop = () => {
           {cartItems.map((item) => (
             <div
               className="pro"
-              onclick="window.location.href='sproducts.html';"
+              onClick="window.location.href='sproducts.html';"
             >
               <Link to={`/sproduct/${item._id}`}>
                 <img src={item.image} alt="" />

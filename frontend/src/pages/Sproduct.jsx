@@ -7,6 +7,7 @@ const Sproduct = () => {
     const { _id } = useParams();
     const [cartItems, setCartItems] = useState(null);
     const [product, setProduct] = useState([]);
+    const [quantity, setQuantity] = useState(1);
     const url = "http://localhost:3000/api/products";
 
     useEffect(() => {
@@ -39,40 +40,53 @@ const Sproduct = () => {
         fetchProductDetails();
     }, [_id]);
 
+    const handleSmallImgClick = (imageSrc) => {
+        setCartItems((prevState) => ({
+            ...prevState,
+            image: imageSrc,
+        }));
+    };
+
+    const handleQuantityChange = (event) => {
+        setQuantity(parseInt(event.target.value));
+    };
+
+    const handleAddToCart = () => {
+        const { _id, name, price } = cartItems;
+
+        fetch("http://localhost:3000/api/cart", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                quantity,
+                product: {
+                    _id,
+                    name,
+                    price,
+                },
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Product added to cart:", data);
+            })
+            .catch((error) => {
+                console.error("Error adding product to cart:", error);
+            });
+    };
+
     if (!cartItems) {
         return null;
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var MainImg = document.getElementById("MainImg");
-        var smallimg = document.getElementsByClassName("small-img");
-        if (smallimg.length > 0) {
-            smallimg[0].onClick = function () {
-                MainImg.src = smallimg[0].src;
-            };
-            smallimg[1].onClick = function () {
-                MainImg.src = smallimg[1].src;
-            };
-            smallimg[2].onClick = function () {
-                MainImg.src = smallimg[2].src;
-            };
-            smallimg[3].onClick = function () {
-                MainImg.src = smallimg[3].src;
-            };
-        }
-    });
 
     return (
         <>
             <Header />
             <section id="prodetails" className="section-p1">
                 <div className="single-pro-image">
-                    <img
-                        src={cartItems.image}
-                        width="100%"
-                        id="MainImg"
-                        alt=""
-                    />
+                    <img src={cartItems.image} width="100%" id="MainImg" alt="" />
                     <div className="small-img-group">
                         {cartItems.images.map((image, index) => (
                             <div className="small-img-col" key={index}>
@@ -81,6 +95,7 @@ const Sproduct = () => {
                                     width="100%"
                                     className="small-img"
                                     alt={`Image ${index + 1}`}
+                                    onClick={() => handleSmallImgClick(image)}
                                 />
                             </div>
                         ))}
@@ -91,10 +106,14 @@ const Sproduct = () => {
                     <h4>{cartItems.name}</h4>
                     <h2>Rp. {cartItems.price}</h2>
                     <h4>Stock: {cartItems.countInStock}</h4>
-                    <input type="number" defaultValue={1} />
-                    <Link to="/Cart">
-                        <button className="normal">add to cart</button>
-                    </Link>
+                    <input
+                        type="number"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                    />
+                    <button className="normal" onClick={handleAddToCart}>
+                        add to cart
+                    </button>
                     <h4>product details</h4>
                     <span>{cartItems.richDescription}</span>
                 </div>
@@ -104,10 +123,7 @@ const Sproduct = () => {
                 <p>cantik banget anjim</p>
                 <div className="pro-container">
                     {product.map((item) => (
-                        <div
-                            className="pro"
-                            onclick="window.location.href='sproducts.html';"
-                        >
+                        <div className="pro" key={item._id}>
                             <Link to={`/sproduct/${item._id}`}>
                                 <img src={item.image} alt="" />
                             </Link>
@@ -117,21 +133,15 @@ const Sproduct = () => {
                                     <div>{item.name}</div>
                                 </Link>
                                 <div className="star">
-                                    {Array.from(
-                                        { length: item.rating },
-                                        (_, index) => (
-                                            <i
-                                                key={index}
-                                                className="bi bi-star-fill"
-                                            />
-                                        )
-                                    )}
+                                    {Array.from({ length: item.rating }, (_, index) => (
+                                        <i key={index} className="bi bi-star-fill" />
+                                    ))}
                                 </div>
                                 <h4>Rp. {item.price}</h4>
                             </div>
-                            <a href="#">
+                            <Link to="#">
                                 <i className="bi bi-cart2 cart" />
-                            </a>
+                            </Link>
                         </div>
                     ))}
                 </div>

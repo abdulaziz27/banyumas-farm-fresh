@@ -123,7 +123,7 @@ router.post('/login', async (req, res) => {
           isAdmin: user.isAdmin,
         },
         secret,
-        { expiresIn: '1m' }
+        { expiresIn: '1d' }
       );
 
       res.status(200).send({ user: user.email, token: token });
@@ -188,7 +188,7 @@ router.post('/register', async (req, res) => {
               isAdmin: user.isAdmin,
             },
             process.env.secret,
-            { expiresIn: '1m' }
+            { expiresIn: '1d' }
           );
           res.status(200).json({ success: true, message: 'Registration successful. Verification email sent', token: token });
         }
@@ -203,7 +203,6 @@ router.post('/register', async (req, res) => {
     try {
       const token = req.params.token;
   
-      // Verifikasi token
       const decoded = jwt.verify(token, process.env.secret);
   
       // Lakukan tindakan yang sesuai jika verifikasi berhasil
@@ -214,13 +213,11 @@ router.post('/register', async (req, res) => {
         return res.status(404).json({ success: false, message: 'User not found' });
       }
   
-      // Setel status verifikasi akun pengguna
       user.isVerified = true;
       await user.save();
   
       res.send('Email verification successful');
     } catch (error) {
-      // Tangani kesalahan verifikasi token
       res.status(400).json({ success: false, error: 'Invalid verification token' });
     }
   });
