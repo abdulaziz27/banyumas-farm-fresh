@@ -64,7 +64,6 @@ const Search = () => {
                 </div>
             </section>
 
-            {/* Additional styling */}
             <div className="suggestions-container">
                 <div className="suggestions">
                     {suggestions.map((suggestion) => (

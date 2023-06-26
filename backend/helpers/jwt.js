@@ -26,18 +26,17 @@ function authJwt() {
 }
 
 async function isRevoked(req, payload) {
-  // Cek apakah pengguna yang terotentikasi adalah admin
   if (payload.isAdmin === true) {
-    return false; // Akses diizinkan untuk admin
+    return false; // izin untuk admin
   }
 
-  // Cek user yang terautentikasi cocok dengan pemilik keranjang
+  // Cek user == pemilik keranjang
   if (req.params.id && payload.userId !== req.params.id) {
     console.log('Unauthorized access');
-    return true; // Akses tidak diizinkan
+    return true; // tidak diizinkan
   }
 
-  return false; // Akses diizinkan untuk pengguna yang bukan admin
+  return false; // izin user bukan admin
 }
 
 module.exports = authJwt;
