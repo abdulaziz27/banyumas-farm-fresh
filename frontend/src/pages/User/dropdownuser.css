@@ -49,6 +49,7 @@
     transform: translateY(0);
     transition: var(--speed) ease;
     background-color: #ffffff;
+    z-index: 999  ;
 
   }
   

@@ -20,6 +20,7 @@ import VerifyEmail from "./pages/VerifyEmail";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import UserProfile from "../src/pages/User/UserProfile";
 
+
 function App() {
     return (
         <div className="App">
@@ -33,27 +34,12 @@ function App() {
                         <Route exact path="/about" element={<About />} />
                         <Route exact path="/login" element={<Login />} />
                         <Route exact path="/register" element={<Register />} />
-                        <Route
-                            exact
-                            path="/sproduct/:_id"
-                            element={<Sproduct />}
-                        />
-                        <Route
-                            exact
-                            path="/verify-email/:token"
-                            element={<VerifyEmail />}
-                        />
+                        <Route exact path="/sproduct/:_id" element={<Sproduct />} />
+                        <Route exact path="/verify-email/:token" element={<VerifyEmail />} />
                         <Route element={<PrivateRoutes />}>
-                            <Route
-                                path="/user/:activepage"
-                                element={<UserProfile />}
-                            />
+                            <Route path="/user/:activepage" element={<UserProfile />} />
                             <Route exact path="/cart" element={<Cart />} />
-                            <Route
-                                exact
-                                path="/checkout"
-                                element={<Checkout />}
-                            />
+                            <Route exact path="/checkout" element={<Checkout />}/>
                         </Route>
                     </Routes>
                     <Footer />
