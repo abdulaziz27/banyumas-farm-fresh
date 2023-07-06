@@ -42,6 +42,14 @@ const Search = () => {
         navigate(`/sproduct/${suggestion._id}`);
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            if (suggestions.length > 0) {
+                navigate(`/sproduct/${suggestions[0]._id}`);
+            }
+        }
+    };
+
     return (
         <>
             <section className="search">
@@ -58,6 +66,7 @@ const Search = () => {
                             placeholder="Search and hit enter..."
                             value={searchTerm}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                         />
                         <span>Search</span>
                     </div>
