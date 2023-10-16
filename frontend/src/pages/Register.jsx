@@ -30,6 +30,9 @@ const Register = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <><Header />
       <section className="main-container col1-layout">
